@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "/hello";
+package hello;
+
+
+message GetHelloRequest {
+  string id = 1;
+  google.protobuf.Timestamp ping_date = 2;
+}
+
+message GetHelloResponse {
+  string id = 1;
+  google.protobuf.Timestamp pong_date = 2;
+}
+
+service HelloService {
+  rpc GetHello(GetHelloRequest) returns (GetHelloResponse);
+}
